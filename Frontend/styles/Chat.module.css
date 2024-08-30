@@ -1,0 +1,1934 @@
+.Chat {
+  width: 100vw;
+  height: 100vh;
+  min-width: 1100px;
+  background-color: var(--color-chat-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.Chat .Content {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  width: 100%;
+  height: 100%;
+  max-width: 1536px;
+  border-radius: 0.5rem;
+  transition: all;
+  overflow: hidden;
+  border: 10px;
+  border: var(--color-text);
+}
+
+.Contacts {
+  width: 100%;
+  grid-column: span 3 / span 3;
+  background-color: var(--color-chat-primary);
+}
+
+.ContactsPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  position: relative;
+}
+
+.ChatList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  padding-bottom: 2rem;
+  overflow: hidden;
+}
+
+.ChatListContent {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+.Conversation {
+  background-color: var(--color-bg-conversation);
+  width: 100%;
+  grid-column: span 7 / span 7;
+  transition: 300ms;
+  position: relative;
+}
+
+.Conversation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mask-image: url(/conversation_bg.svg);
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  background-color: oklch(60% 0.025 192.53);
+  opacity: 0.05;
+}
+
+.InitialConversation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mask-image: url(/conversation_bg.svg);
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  background-color: oklch(60% 0.025 192.53);
+  z-index: 1;
+  opacity: 0.05;
+}
+
+.ChatNav {
+  width: 100%;
+  height: auto;
+  padding: 0.6rem .8rem 0.6rem 1.4rem;
+  background: var(--color-chat-secondary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.ChatNav .Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10rem;
+  background-color: var(--image-background-color);
+  overflow: hidden;
+  position: relative;
+}
+.Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10rem;
+  background-color: var(--image-background-color);
+  overflow: hidden;
+  position: relative;
+  object-fit: cover;
+}
+
+.ImageGroupProfile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10rem;
+  background-color: var(--image-background-color);
+  overflow: hidden;
+  position: relative;
+  object-fit: cover;
+  margin-top: 4px;
+}
+
+.ImagePosition {
+  position: absolute;
+  top: 0px;
+  object-fit: cover;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ChatNav .Config {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Search {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+
+.Search .SearchContent {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-chat-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.Search .SearchContent input {
+  width: 100%;
+  background-color: transparent;
+  font-size: 14px;
+  padding-left: 1.5rem;
+  outline: none;
+}
+
+.Contact {
+  width: 100%;
+  padding: 0 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+.Contact:hover {
+  width: 100%;
+  background-color: var(--color-chat-hover);
+}
+
+.ContactSelected {
+  width: 100%;
+  background-color: var(--color-chat-hover);
+}
+
+.Contact .Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 50px;
+  border-radius: 100rem;
+  background-color: var(--image-background-color);
+  overflow: hidden;
+}
+
+.Contact .Info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-width: 1px;
+  border-color: var(--color-chat-hover);
+  padding: 0.7rem 0;
+  gap: 1rem;
+}
+
+.Contact .Info h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Contact .Info p {
+  font-size: 14px;
+}
+
+.Contact .Info .InfoMessages {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: end;
+}
+
+.Contact .Info .InfoMessages p {
+  font-size: 12px;
+}
+
+.Contact .Info .MessagesNumber {
+  position: relative;
+  background-color: var(--color-chat-message_owner);
+  width: 20px;
+  height: 20px;
+  border-radius: 100rem;
+}
+
+.MessagesNumber .Number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  font-size: 10px;
+}
+
+.Contacts .Filters {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13px;
+  padding: 0 1rem 1rem;
+  gap: 0.3rem;
+  border-bottom-width: 1px;
+  border-color: var(--color-chat-hover);
+}
+
+.Contacts .Filters button {
+  text-align: center;
+  border-radius: 5rem;
+  background-color: var(--color-chat-secondary);
+  padding: 0.4rem 1rem;
+  transition: all;
+}
+
+.Contacts .Filters button:hover {
+  background-color: var(--color-buttons-hover);
+}
+
+.ContactList {
+  width: 100%;
+  z-index: 50;
+  position: absolute;
+  top: 0px;
+  background-color: var(--color-chat-primary);
+  height: 100%;
+  transition: 150ms;
+}
+
+.ContactListNav {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-chat-secondary);
+  padding: 1.1rem;
+}
+
+.NewGroup {
+  padding: 0.6rem 0;
+}
+
+.ListContacts {
+  padding: 1.5rem 1rem;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--color-chat-hover);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-chat-primary);
+}
+
+.RequestList {
+  width: 100%;
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  background-color: var(--color-chat-primary);
+  height: 100%;
+  transition: 150ms;
+}
+
+.RequestListCall {
+  width: 100%;
+  z-index: 100;
+  position: absolute;
+  top: 0px;
+  background-color: var(--color-chat-primary);
+  height: 100%;
+  transition: 150ms;
+  z-index: 500;
+}
+
+.InitialConversation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 900;
+  background-size: cover;
+  background-color: var(--color-bg-initial);
+}
+
+.InitialConversation span{
+  color: var(--color-response-message);
+}
+
+.LastMessage .Sender{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.LastMessage .FilesTypes{
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1.4rem 0 0 ;
+}
+
+.LastMessage .FilesTypes img{
+  min-width: 18px;
+  position: absolute;
+  top: .2px;
+}
+
+.LastMessage .SenderMessage{
+ display: -webkit-box;
+ position: relative;
+ line-clamp: 1;
+ -webkit-line-clamp: 1; 
+ -webkit-box-orient: vertical;
+ overflow: hidden;
+}
+
+
+.ChatMessages {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.ConversationNav {
+  width: 100%;
+  height: auto;
+  padding: 0.6rem 1.4rem;
+  background: var(--color-chat-secondary);
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  position: relative;
+  min-height: 59.2px;
+}
+
+.ParticipantInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ParticipantInfo .Image {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10rem;
+  background-color: var(--image-background-color);
+  overflow: hidden;
+}
+
+.Options {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Messages {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 1rem;
+}
+
+.Messages > :last-child {
+  margin-bottom: 0;
+}
+
+.OnlineStatus {
+  font-size: 10px;
+}
+
+.SendMessages {
+  width: 100%;
+  height: auto;
+  background-color: var(--color-chat-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.SendMessageInput {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  z-index: 4;
+  gap: 1rem;
+}
+
+.SendMessageInput .ButtonEmoji {
+  margin-bottom: 4px;
+}
+
+.SendInput {
+  width: 100%;
+  display: flex;
+  background-color: var(--color-inputs);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.SendInput input {
+  width: 100%;
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+}
+
+.MessageDestination {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: start;
+}
+
+.MessageOwner {
+  width: 100%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: end;
+}
+
+.MessageOwner .MessageBox {
+  background-color: var(--color-chat-message_owner);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  max-width: 45%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  border-radius: 0.5rem 0 0.5rem 0.5rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.MessageBoxInfo{
+  max-width: 100% !important;
+}
+
+.MessageOwner .MessageBox::after {
+  content: '';
+  position: absolute;
+  top: 9.6px; 
+  right: -20px; 
+  transform: translateY(-50%); 
+  width: 35px; 
+  height: 20px;
+  background-image: url('/messageFlag.svg');
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+}
+
+
+.MessageBoxContent {
+  display: flex;
+  align-items: end;
+  gap: .5rem;
+  padding: 0.2rem .5rem;
+  width: 100%;
+  justify-content: start;
+  align-items: start;
+}
+
+.MessageBoxContent .ImageMessageItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: auto;
+  position: relative;
+  background-size: cover;
+  border-radius: 0.1rem !important;
+  background-color: transparent !important;
+}
+
+.MessageDestination .MessageBox {
+  background-color: var(--color-chat-secondary);
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  max-width: 45%;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  border-radius: 0 0.5rem 0.5rem 0.5rem ;
+  position: relative;
+}
+
+.MessageDestination .MessageBox::before {
+  content: '';
+  position: absolute;
+  top: 0px; 
+  left: -23px; 
+  transform: translateY(-50%);
+  transform: scaleX(-1); 
+  width: 35px; 
+  height: 20px;
+  background-image: url('/messageFlagContact.svg');
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+}
+
+.InfoModal {
+  position: absolute;
+  backdrop-filter: blur(50px);
+  display: none;
+  border-radius: 8px;
+  transition: all;
+  animation-duration: 200ms;
+  padding: 0.1rem;
+  top: 6px;
+  right: 10px;
+  z-index: 2;
+}
+
+.MessageBox:hover .InfoModal {
+  display: block;
+}
+
+.InfoModalShow {
+  display: block;
+}
+
+.Time {
+  color: var(--color-text);
+  font-size: 11px !important;
+  width: fit-content !important;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.2;
+}
+
+.LastMessage {
+  display: flex;
+  align-items: start;
+  gap: 0.3rem;
+  font-size: 12px;
+}
+
+
+.MessageModal {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  z-index: 1;
+}
+
+.ShowMessageModal {
+  display: block;
+  z-index: 40;
+}
+
+.MessageBoxModal {
+  background-color: var(--color-chat-primary);
+  border-width: 1px;
+  border-color: gray;
+  padding: 1rem 1.5rem;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.InfoPage {
+  width: 100%;
+  grid-column: span 0 / span 0;
+  transition: 300ms;
+  display: none;
+}
+
+.ShowInfoPage {
+  width: 100%;
+  grid-column: span 3 / span 3;
+  display: block;
+}
+
+.ConversationPageWithInfo {
+  width: 100%;
+  grid-column: span 4 / span 4 !important;
+}
+
+.ShowInfoPageData {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  overflow-y: auto;
+  background-color: var(--color-chat-primary);
+  padding-bottom: 2rem;
+}
+
+.ShowInfoPageDataContent {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.InfoDataMessage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-items: start;
+  align-items: start;
+  background-color: var(--color-chat-secondary);
+  padding: 1rem;
+  font-size: 13px;
+}
+
+.InfoDataMessage li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1rem 0;
+}
+
+.InfoDataMessage li div {
+  font-size: 15px;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ResponseMessage {
+  width: 100%;
+  padding: 0.5rem 2rem 0;
+  display: none;
+  z-index: 5;
+}
+
+.ShowSendMessages {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ShowSendMessages .ResponseMessageContent {
+  display: flex;
+  background-color: var(--color-chat-primary);
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+  width: 100%;
+  font-size: 14px;
+  border-left-width: 4px;
+  border-left-color: var(--color-response-message);
+}
+
+.MessageResponse {
+  background-color: var(--color-chat-primary)66;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+  font-size: 14px;
+  border-left-width: 4px;
+  border-left-color: var(--color-response-message);
+}
+
+.MessageBox .MessageResponse {
+  background: #ffffff21;
+  z-index: 1
+}
+
+.MessageOwner .MessageBox .MessageResponse {
+  padding:  1rem;
+  background: #00000021;
+  z-index: 1;
+  border-left-color: rgb(172, 172, 172);
+}
+
+.MessageOwner .MessageBox .MessageResponse .ResponseMessageContent .ResponseMessageContentData .ResponseColor {
+  color: var(--color-text);
+}
+
+.ResponseText {
+  color: var(--color-response-message);
+}
+
+.ModalFiles {
+  display: none;
+  z-index: 50;
+}
+
+.ShowModalFiles {
+  position: absolute;
+  bottom: 3rem;
+  left: 5rem;
+  z-index: 50;
+}
+
+.ShowModalInfoContact {
+  position: absolute;
+  background-color: var(--color-chat-primary);
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 0.3rem;
+  top: 50px;
+  right: 30px;
+  z-index: 50;
+}
+
+.FilesModal {
+  background-color: var(--color-chat-primary);
+  padding: 1rem 1.5rem;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: start;
+}
+
+.FilesModal button {
+  display: flex;
+  justify-content: start;
+}
+
+.FilesModal li label {
+  display: flex;
+  justify-content: start;
+  gap: 0.5rem;
+}
+
+.ConversationContent {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.ConversationSection {
+  display: none;
+}
+
+.ShowConversation {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between;
+  align-items: end;
+  padding-bottom: 2rem;
+}
+
+.FileSection {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.ShowFile {
+  display: block;
+}
+
+.ChatInfoMessageIcons {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+}
+
+.FilePage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.FilePageNav {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+}
+
+.FilePageContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.FilePageContent .FileContent {
+  width: 70%;
+  display: flex;
+  background-color: var(--color-chat-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+}
+
+.FilePageContent .FileContent input {
+  width: 100%;
+  background-color: transparent;
+  font-size: 14px;
+  padding-left: 0.1rem;
+  outline: none;
+}
+
+.FilePageFoot {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 9rem;
+  padding-bottom: 2rem;
+}
+
+.FilePageFoot div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.FilePageFoot .sentFiles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-chat-message_owner);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  position: absolute;
+  right: 0px;
+}
+
+.Files {
+  border-width: 0.3rem;
+  border-color: var(--color-chat-message_owner);
+  border-radius: 0.3rem;
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImagePreview,
+.VideoPreview {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.VideoPreview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.AddFile {
+  border-width: 0.3rem;
+  border-color: var(--color-file);
+  border-radius: 0.3rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.EmojiModal {
+  background-color: var(--color-chat-secondary);
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  padding: 1rem 1rem 0;
+  z-index: 1;
+  position: relative;
+  display: none;
+}
+
+.EmojiModalActived {
+  display: block;
+}
+
+.DeleteModal {
+  background-color: var(--color-chat-primary)b3;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: none;
+}
+
+.DeleteModalShow {
+  display: block;
+}
+
+.DeleteModalContent {
+  background-color: var(--color-inputs);
+  border-radius: 0.5rem;
+  width: 500px;
+  height: 200px;
+  padding: 2rem 1rem;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.DeleteModalContent div {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  gap: 1rem;
+}
+
+.DeleteModalContent div button {
+  border-radius: 1rem;
+  background-color: var(--color-chat-message_owner);
+  padding: 0.5rem 1rem;
+}
+
+.MessageTimeAndChecInformation {
+  width: 100%;
+  display: flex;
+  gap: 0.2rem;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.MessageDestination .MessageBox .MessageBoxContent .MessageTimeAndChecInformation div {
+  width: 28px;
+  min-width: 28px;
+  display: flex;
+  gap: 0.1rem;
+  justify-content: end;
+  align-items: end;
+}
+.MessageOwner .MessageBox .MessageBoxContent .MessageTimeAndChecInformation div {
+  width: 45px;
+  min-width: 45px;
+  display: flex;
+  gap: 0.1rem;
+  justify-content: end;
+  align-items: end;
+}
+
+.MessageTimeAndChecInformation p {
+  width: 100%;
+  margin: 3px 0;
+}
+
+.MessageBoxContent .Image {
+  padding-top: .4rem;
+  padding-bottom: .1rem;
+  cursor: pointer;
+}
+
+.ResponseMessageContentData {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.MessageResponse .ResponseMessageContent .ResponseMessageContentDataFile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+.ResponseMessageContentDataFile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+}
+
+.ResponseMessageContentDataFile .FileDocument {
+  padding: 10px 0 !important;
+  width: 250px;
+  height: auto;
+}
+
+.ResponseColor {
+  color: var(--color-response-message);
+  font-weight: 900;
+}
+
+.ResponseMessageContentDataFile .Image {
+  padding: 5px 0 0 !important;
+  width: 150px !important;
+  height: auto !important;
+  background-color: transparent !important;
+  border-radius: 0.2rem !important;
+}
+
+.Documents {
+  width: 600px;
+  height: 380px;
+  background-color: var(--color-inputs);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.FileDocument {
+  display: flex;
+  max-width: 300px;
+  width: fit-content;
+  height: 100%;
+  gap: 1rem;
+  font-size: 13px;
+  justify-content: start;
+  align-items: center;
+  padding: .2erm 0 0;
+}
+
+.FileDocument .Content {
+  display: flex;
+  width: 90%;
+  height: 100%;
+  gap: 1rem;
+  font-size: 13px;
+  justify-content: center;
+  align-items: center;
+}
+
+.FilePageView {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  position: absolute;
+  top: 0px;
+  background-color: var(--color-chat-primary);
+  border-left-width: 0.1rem;
+  border-left-color: var(--color-buttons-hover);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.FilePageView .Content {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  overflow-y: auto;
+}
+
+.FilePageViewNav {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.FilePageViewContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.FilePageViewContent .FileContent {
+  width: 70%;
+  display: flex;
+  background-color: var(--color-chat-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+}
+
+.FilePageViewContent .FileContent input {
+  width: 100%;
+  background-color: transparent;
+  font-size: 14px;
+  padding-left: 0.1rem;
+  outline: none;
+}
+
+.FilePageViewFoot {
+  min-height: 100px;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin: 0 9rem;
+}
+
+.FilePageViewFoot div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.VoiceModuleRecording {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  position: relative;
+  gap: 4rem;
+  z-index: 5;
+}
+.VoiceModuleRecording button {
+  min-width: 20px;
+  max-width: 25px;
+}
+
+.VoiceModuleRecording div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.5rem;
+  position: absolute;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  margin: auto;
+  z-index: 1;
+}
+
+.VoiceModuleRecording .img {
+  max-width: 100%;
+  height: 15px !important;
+}
+
+.Audio {
+  width: 280px;
+  position: relative;
+}
+
+.ShowInfoPageContact {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ContactListContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: var(--color-chat-primary);
+  transition: 300ms;
+  overflow-y: auto;
+  padding-bottom: 3rem;
+}
+
+.ContactListImage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  font-size: 18px;
+}
+
+.ContactListImage .Image {
+  width: 230px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rem;
+  background-color: var(--image-background-color);
+  overflow: hidden;
+}
+
+.ContactState {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 14px;
+}
+
+.ContactOptions {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: 14px;
+  gap: .5rem;
+}
+
+.ContactOptions div {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ContactTitle {
+  color: var(--color-response-message);
+  font-weight: 600;
+}
+
+.ContactButton {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-chat-message_owner);
+  padding: 0.5rem;
+  font-size: 14px;
+  gap: 0.5rem;
+  transition: all;
+  animation-duration: 300;
+  transition: 300ms;
+  border-radius: 0.5rem;
+}
+
+.ContactButton:hover {
+  background-color: var(--color-chat-secondary);
+}
+
+.PageContentChat {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-chat-primary);
+}
+
+.ContactListBody {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: var(--color-chat-primary);
+  padding-bottom: 2rem;
+}
+
+.ContactListBody .NoResult {
+  padding: 0 1.5rem;
+}
+
+.InfoUserPage {
+  height: 100%;
+  width: 100%;
+  grid-column: span 7 / span 7;
+  transition: 150ms;
+  position: absolute;
+  z-index: 10;
+}
+
+.ContactAdd {
+  display: flex;
+  background-color: var(--color-chat-primary);
+  font-size: 14px;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ContactAdd button {
+  background-color: var(--color-chat-message_owner);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all;
+  margin: 1rem;
+}
+
+.ContactAdd button:hover {
+  background-color: var(--color-chat-secondary);
+}
+
+.ContactAdd .ContactAddSend {
+  background-color: var(--color-chat-message_owner);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+
+.FriendRequestsShow {
+  display: none;
+}
+
+.GroupContactContinue {
+  background-color: var(--color-chat-message_owner);
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+  position: absolute;
+  right: 20px;
+  font-size: 12px;
+}
+
+.GroupDataBody {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  font-size: 12px;
+  background-color: var(--color-chat-primary);
+}
+
+.GroupDataBody .Images {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.GroupDataBody .Images input {
+  display: none;
+}
+
+.GroupDataBody .Images label {
+  display: flex;
+  background-color: gray;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  border-radius: 700px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.Images .DeleteImage {
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 1rem;
+}
+
+.ImageUpload {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ImageUpload:hover .ImageOverlay {
+  opacity: 1;
+}
+
+.inputField {
+  width: 100%;
+  background-color: var(--color-chat-secondary);
+  font-size: 14px;
+  padding: 0.5rem;
+  outline: none;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0 0.2rem;
+}
+
+.GroupParticipants {
+  width: 100%;
+  display: flex;
+  gap: 0.6rem;
+  font-size: 12px;
+}
+
+.GroupParticipant {
+  width: 100%;
+  font-style: italic;
+  color: var(--color-text);
+  text-align: start;
+  outline: none;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 25%;
+  margin: .6rem 0 .4rem 0;
+}
+
+.MessageDestination .MessageBox .MessageBoxContent  .GroupParticipant {
+  color: var(--color-response-message);
+}
+
+.GroupParticipantData {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.GroupParticipantData p {
+  background-color: var(--color-inputs);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.Bloquet {
+  padding: 1rem;
+}
+
+.AdjustPage {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+}
+
+.AdjustPage .Profile {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdjustPage .Profile .Image {
+  width: 230px;
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100rem;
+  background-color: var(--image-background-color);
+  overflow: hidden;
+}
+
+
+.AdjustPage .Profile .Image label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.AdjustPage .Profile .ImageOverlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-image-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.AdjustPage .Profile .Image:hover .ImageOverlay {
+  opacity: 1;
+}
+
+.AdjustPage .Profile .Image input {
+  display: none;
+}
+
+.AdjustPage form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.AdjustPage form label {
+  color: var(--color-response-message);
+  font-weight: 600;
+}
+
+.AdjustPage input {
+  width: 90%;
+  background-color: transparent;
+  border-bottom-width: 0.1rem;
+  border-bottom-color: var(--color-inputs);
+  outline: transparent;
+}
+
+.EditInput {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ImageHover {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  display: none;
+}
+
+.CallPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 25px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  font-size: 18px;
+}
+
+.ImageCallPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.CallPage .Image {
+  width: 230px;
+  height: 230px;
+  border-radius: 10rem;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.ButtonsCall {
+  display: flex;
+  gap: 1rem;
+}
+
+.EndCall {
+  background-color: rgb(179, 0, 0);
+  border-radius: 10rem;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.StartCall {
+  background-color: rgb(0, 179, 30);
+  border-radius: 10rem;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ButtonCall {
+  background-color: rgb(68, 68, 68);
+  border-radius: 10rem;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.VideoCallPage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  font-size: 25px;
+}
+
+.VideoParticipant {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+}
+
+.VideoParticipant video {
+  position: relative;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  z-index: 90;
+}
+
+.ButtonsVideoCall {
+  position: absolute;
+  bottom: 40px;
+  right: 10px;
+  z-index: 100;
+  display: flex;
+  gap: 0.2rem;
+}
+
+.ButtonsVideoCall img {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+}
+
+.CallVideoPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 25px;
+  position: relative;
+  overflow: hidden;
+  min-height: 550px;
+  
+}
+
+.NameParticipant {
+  position: absolute;
+  z-index: 100;
+  bottom: 40px;
+  font-size: 16px;
+  left: 5px;
+  background-color: var(--color-chat-primary);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.LocalVideoCall {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 40%;
+  height: 32%;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.LocalVideoCallVideo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.LocalVideoCallVideo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: var(--color-chat-secondary);
+}
+
+.LocalVideoCallVideo video {
+  max-width: none !important;
+  height: 100% !important;
+  z-index: 90;
+}
+
+
+.LocalVideoCallVideo span {
+  display: none;
+}
+
+.NameLocalCallRemote {
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  font-size: 10px;
+  left: 5px;
+  background-color: var(--color-chat-primary);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.ImageVideoCallPage {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  border-radius: 10rem;
+}
+
+.callData {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.CallType {
+  display: flex;
+  height: 100%;
+  gap: 1rem;
+  font-size: 13px;
+  justify-content: center;
+  align-items: center;
+}
+
+.CallType .Content {
+  display: flex;
+  width: 45px;
+  gap: 1rem;
+  font-size: 13px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-chat-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.CallType .ContentCall {
+  padding-right: 1.5rem;
+}
+
+.CallType .TimeCall {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: var(--color-text);
+  font-size: 10px;
+}
+
+.WithoutData {
+  width: 100%;
+  padding: 1rem;
+  font-style: italic;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.FrienRequestNotify {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--color-chat-message_owner);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 10px;
+  top: 8px;
+  right: 125px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.ModalToogle{
+  height: 100% !important;
+  max-height: 25px !important;
+}
+
+/* Responsive */
+@media only screen and (min-width: 0px) and (max-width: 1325px) {
+  .Contacts {
+    width: 100%;
+    grid-column: span 4 / span 4;
+  }
+  .Chat .Content {
+    display: grid;
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+  }
+  .FilePageView .Content {
+    width: 100%;
+    height: 90vh;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    overflow-y: auto;
+  }
+
+  .SendMessageInput {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  .ConversationNav {
+    padding: 0.6rem 0.5rem;
+  }
+  .Messages {
+    padding: 1rem 0.5rem;
+  }
+  .Audio {
+    width: 250px;
+    position: relative;
+  }
+  .CallType .Content {
+    min-width: 25px;
+    min-height: 25px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+

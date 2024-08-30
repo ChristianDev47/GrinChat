@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: chat_online_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - chat_online_network
+
+  api:
+    build:
+      context: ./api 
+    container_name: chat_online_api
+    ports:
+      - "3000:3000" 
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/chat_online 
+      - JWT_SECRET=your_jwt_secret
+      - NODE_ENV=development 
+    volumes:
+      - ./api:/usr/src/app 
+    depends_on:
+      - mongodb
+    networks:
+      - chat_online_network
+
+networks:
+  chat_online_network:
+    driver: bridge
+
+volumes:
+  mongodb_data:

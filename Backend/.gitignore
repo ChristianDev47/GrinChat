@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.*
+
+# Directory for output
+dist/
+build/
+
+# Cache and temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Editor directories and files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Coverage
+coverage/
+*.lcov
+
+# Docker
+*.tgz
+
+# SSL certificates
+*.pem
+*.crt
+*.key

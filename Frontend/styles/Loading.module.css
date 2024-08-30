@@ -1,0 +1,39 @@
+.loadingContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  z-index: 100;
+}
+
+.loadingContainer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  mask-image: url(/conversation_bg.svg);
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  background-color: oklch(60% 0.025 192.53);
+  opacity: 0.05;
+}
+
+.progressBarContainer {
+  width: 100px;
+  height: 10px;
+  background-color: #515151;
+  margin-top: 16px;
+  border-radius: 9999px;
+  overflow: hidden;
+  z-index: 120;
+}
+
+.progressBar {
+  background-color: var(--progress-background);
+  height: 100%;
+  z-index: 120;
+}

@@ -1,0 +1,231 @@
+.Register {
+  width: 100vw;
+  height: 100vh;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button {
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  padding: 0.8rem;
+  font-weight: 600;
+  margin: 1rem 0 0 0;
+  background-color: #00428d;
+  cursor: pointer;
+}
+
+.FormRegister {
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  gap: 1rem;
+  text-align: center;
+}
+
+.FormRegister h1 {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.FormRegister p {
+  font-size: 14px;
+}
+
+.FormRegister .ContentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.FormRegister .InputCamp {
+  position: relative;
+}
+
+.FormRegister .Error {
+  position: absolute;
+  font-size: 12px;
+  color: #ff2d2d;
+  margin: 0.5rem 0.2rem;
+  text-align: start;
+  top: 3.2rem;
+}
+
+.FormRegister .Advert {
+  position: absolute;
+  font-size: 12px;
+  color: white;
+  margin: 0.5rem 0.2rem;
+  text-align: start;
+  top: 3.2rem;
+}
+
+.FormRegister div {
+  width: 100%;
+  position: relative;
+}
+
+.FormRegister .InputLabel {
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  pointer-events: none;
+  color: #9c9d99;
+  overflow: hidden;
+}
+
+.FormRegister .actived {
+  transform: translateY(-50%);
+}
+
+.FormRegister .deactived {
+  transform: translateY(-120%);
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.inputField {
+  width: 100%;
+  padding-left: 0.5rem;
+  transition: all 0.3s;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  height: 100%;
+  border-radius: 7px;
+  border-width: 1px;
+  border-color: var(--colortext);
+  background-color: var(--bg-second);
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  font-weight: normal;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  outline: 0;
+  transition: all 0.3s;
+}
+
+.inputFieldFocused {
+  padding-top: 1.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.placeholderShown {
+  border-width: 1px;
+  border-color: gray;
+  border-top-color: gray;
+}
+
+.inputFieldFocusedState {
+  border-color: var(--colortext);
+  border-top-color: var(--colortext);
+  outline: 0;
+}
+
+.disabledField {
+  border-width: 0;
+  background-color: gray;
+  outline: none;
+}
+
+.FormRegister button {
+  width: 100%;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  padding: 0.8rem;
+  font-weight: 600;
+  margin: 1rem 0 0 0;
+}
+
+.FormRegister .buttonAllow {
+  background: #00428d;
+}
+
+.FormRegister .buttonDisabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.FormRegister .Images {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.FormRegister .Images input {
+  display: none;
+}
+
+.FormRegister .Images label {
+  display: flex;
+  background-color: gray;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 150px;
+  height: 150px;
+  border-radius: 700px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.Images .DeleteImage {
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 1rem;
+}
+
+.ImageUpload {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ButtonNextPrev {
+  width: 550px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  gap: 0.5rem;
+}
+
+.ButtonNextPrev .ButtonPrev {
+  background-color: transparent;
+  display: flex;
+  gap: 0.5rem;
+  width: 120px;
+  justify-content: start;
+}
+
+.ButtonNextPrev .ButtonNext {
+  background-color: transparent;
+  display: flex;
+  gap: 0.5rem;
+  width: 120px;
+  justify-content: end;
+}
+
+/* Responsive */
+
+@media only screen and (min-width: 320px) and (max-width: 560px) {
+  .FormRegister {
+    width: 90%;
+    padding: 1rem;
+  }
+  .ButtonNextPrev {
+    width: 90%;
+    padding: 1rem;
+  }
+}

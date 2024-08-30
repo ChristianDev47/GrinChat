@@ -1,0 +1,494 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  padding: 24px 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+.Slider {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: var(--color-text);
+  gap: 2rem;
+  padding: 1rem 0;
+  text-align: center;
+  position: relative;
+  max-width: 1100px;
+}
+
+.Text {
+  color: var(--color-primary);
+}
+
+.Slider h3 {
+  font-size: clamp(2rem, 5vw, 45px);
+  line-height: 2.8rem;
+  font-weight: bold;
+}
+
+.Slider .Subtitle {
+  width: 80%;
+  font-size: 18px;
+}
+
+.Slider button {
+  width: 150px;
+  font-size: small;
+  padding: 1rem 0.5rem;
+  background: var(--button-background);
+  border-radius: 0.5rem;
+  font-weight: 900;
+}
+
+.Slider button:hover {
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.05);
+}
+
+.Section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.Circle,
+.Circle1,
+.Circle2,
+.Circle5,
+.Circle7,
+.Circle8,
+.Circle9 {
+  position: absolute;
+  border-radius: 100%;
+  background-image: linear-gradient(to right, var(--color-secondary), var(--color-primary));
+}
+
+.Circle {
+  top: 250px;
+  width: 510px;
+  height: 510px;
+}
+
+.Circle1 {
+  top: -20px;
+  left: -80px;
+  width: 110px;
+  height: 110px;
+}
+
+.Circle2 {
+  top: 220px;
+  left: -350px;
+  width: 350px;
+  height: 350px;
+}
+
+.Circle5 {
+  top: 70px;
+  left: -150px;
+  width: 30px;
+  height: 30px;
+}
+
+.Circle7 {
+  top: 20px;
+  right: -20px;
+  width: 90px;
+  height: 90px;
+}
+
+.Circle8 {
+  top: 100px;
+  right: -380px;
+  width: 350px;
+  height: 350px;
+}
+
+.Circle9 {
+  top: -50px;
+  left: 45px;
+  width: 400px;
+  height: 400px;
+}
+
+.Arrow {
+  position: absolute;
+  top: 200px;
+  right: 398px;
+  transform: rotate(-45deg); 
+}
+.Arrow1 {
+  position: absolute;
+  top: 320px;
+  right: 302px;
+  transform: rotate(-20deg); 
+}
+.Arrow2 {
+  position: absolute;
+  top: 250px;
+  left: 360px;
+  transform: rotate(30deg) scaleX(-1); 
+  
+}
+
+.P1 {
+  position: absolute;
+  top: 500px;
+  z-index: 50;
+  left: 20px;
+}
+
+.User {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .6rem;
+  z-index: 50;
+  width: 300px;
+  border-radius: 1rem;
+  padding: .5rem;
+  box-shadow: black;
+  box-shadow: 1rem;
+}
+
+.User1{
+  background: #0050db;
+  top: 200px;
+  right: 80px;
+
+}
+.User2 {
+  background: #f1f1f1;
+  top: 300px;
+  left: 60px;
+  color: black;
+}
+.User3 {
+  background: #0050db;
+  top: 380px;
+  right: -20px;
+}
+
+.User .Image{
+  height: 50px;
+  width: 50px;
+  min-width: 50px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  object-fit: cover;
+
+}
+.User div {
+  text-align: start;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.User h3{
+  line-height: 1.5;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+.User p{
+  font-size: 12px;
+  width: 100%;
+  line-height: 15px;
+}
+
+
+.Sections {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 1100px;
+  gap: 8rem;
+}
+
+.Section1 .Content{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 3rem 0 0 0;
+  width: 100%;
+  height: 100%;
+  gap: 2rem 1rem;
+}
+
+.Sections h3{
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.Section1 .Content .Item{
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  text-align: start;
+  gap: 1rem;
+  text-wrap: pretty;
+  padding: 1rem;
+  border-width: 2px;
+  border-color: rgba(170, 170, 170, 0.15);
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0px var(--card-box-shadow-1-y) var(--card-box-shadow-1-blur) var(--card-box-shadow-1), 0px var(--card-box-shadow-2-y) var(--card-box-shadow-2-blur) var(--card-box-shadow-2), 0 0 0 1px var(--card-border-color); 
+  transition: box-shadow .25s;
+
+  &:hover {
+    border-color: rgba(220, 220, 220, 0.207);
+    box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+
+  }
+}
+
+.Section1 .Content .Item h2{
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+
+.Section2 .Content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+  margin: 2rem 0 0 0;
+  text-align: start;
+  position: relative;
+}
+
+.Section2 .Content .Bg{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-color: rgba(49, 49, 49, 0.488);
+}
+
+.Sections strong {
+  font-weight: bold;
+}
+.Section2 .Image {
+  margin-top: 1rem;
+  position: relative;
+  z-index: 50;
+}
+
+.Section3 .Content {
+  display: flex;
+  justify-content: space-between;
+  text-align: start;
+  gap: 6rem;
+  margin-top: 2rem;
+  padding: 0 2rem 0 2rem;
+}
+
+.Section3 .Content ul{
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding-right: 1rem;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.Section3 .Content image{
+  min-height: 450px;
+}
+.Section3 .Content h2{
+  font-size: 1.8rem;
+}
+
+.ContentSwipper{
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ContentSwipper div{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1.5rem;
+}
+
+.ContentSwipper .Image{
+  flex: 1 1 auto; 
+  max-width: 45%; 
+  object-fit: cover;
+}
+
+.Section4 .Content{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 4rem;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.Section4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.Section4 .Content div{
+  width: 95%;
+  font-size: 18px;
+}
+
+.Section4 .Image{
+  max-height: 540px;
+  border-color: rgba(220, 220, 220, 0.207);
+    box-shadow: 0px 3px 6px var(--card-hover-box-shadow-1), 0px var(--card-hover-box-shadow-2-y) var(--card-hover-box-shadow-2-blur) var(--card-hover-box-shadow-2), 0 0 0 1px var(--card-hover-border-color);
+}
+.Section4 .Link{
+  width: 200px;
+  font-size: small;
+  padding: 1rem 0.5rem;
+  background: var(--color-primary);
+  border-radius: 0.5rem;
+  font-weight: 900;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media only screen and (max-width: 1100px) {
+  .Slider .Subtitle {
+    width: 80%;
+    position: relative;
+    z-index: 20;
+  }
+  .Circle7 {
+    right: 20px;
+  }
+  .Circle1 {
+    left: 20px;
+  }
+  .Circle5 {
+    left: -15px;
+  }
+  .User1 {
+    right: 40px;
+  }
+  .User2{
+    left: 40px;
+  }
+  .User3{
+    right: -10px;
+  }
+  .Arrow{
+    right: 350px;
+  }
+  .Arrow1{
+    right: 280px;
+  }
+  .Arrow2{
+    top: 240px;
+    left: 300px;
+  }
+  .P1 {
+    left: 20px;
+  }
+  .Section2 .Content {
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+  .Section2 .Content div {
+    width: 90%;
+  }
+  .swiper {
+    max-width: 8600px !important;
+    height: 520px;
+  }
+  .Section3 .Content h2{
+    font-size: 1.5rem;
+  }
+  .Section4 .Content div{
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 900px)  {
+  .Arrow, .Arrow1, .Arrow2, .User, .P1, .Circle1, .Circle5, .Circle7, .Circle8, .Circle2{
+    display: none;
+  }
+  .Slider .Subtitle{
+    width: 100%;
+  }
+
+  .Section1 .Content{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .Section3 .Content h2{
+    font-size: 1.2rem;
+  }
+  .Section4 .Content div{
+    width: 100%;
+  }
+  .Section4 .Content{
+    padding: 0;
+  }
+
+}
+
+@media only screen and (max-width: 565px)  {
+  .Section1 .Content{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .Section2 .Content div {
+    width: 100%;
+  }
+
+  .Circle{
+    width: 450px;
+    height: 450px;
+  }
+  .Section3 .Content h2{
+    font-size: 1rem;
+  }
+}
